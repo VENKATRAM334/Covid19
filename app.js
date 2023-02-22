@@ -66,11 +66,11 @@ app.get("/states/:stateId/", async (request, response) => {
 
 //Put API 3
 app.post("/districts/", async (request, response) => {
-  const { districtName, stateId, cases, cured, active, deaths } = request.body;
+  const { districtName, stateId, cases, cured, active, deaths } = request.boday;
   const insertedDistrictQuery = `
     INSERT INTO
-    district (districtName, stateId, cases, cured, active, deaths)
-    VLAUES 
+    district (district_name, state_id, cases, cured, active, deaths)
+    VALUES
     ('${districtName}', ${stateId}, ${cases}, ${cured}, ${active}, ${deaths}); 
     `;
   await database.run(insertedDistrictQuery);
